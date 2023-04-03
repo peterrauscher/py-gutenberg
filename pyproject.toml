@@ -1,3 +1,35 @@
 [build-system]
-requires = ["setuptools>=46.4.0", "wheel"]
+requires = ["setuptools>=61.0", "requests>=2.28.2"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "py-gutenberg"
+version = "0.0.1"
+authors = [
+  { name="Peter Rauscher", email="peterrauscher@protonmail.com" },
+]
+description = "A library to access the Project Gutenberg API"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3 :: Only",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Natural Language :: English",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/peterrauscher/gutenberg-py"
+"Bug Tracker" = "https://github.com/peterrauscher/gutenberg-py/issues"
+"Source Code" = "https://github.com/peterrauscher/gutenberg-py"
+"Funding" = "https://ko-fi.com/peterrauscher"
