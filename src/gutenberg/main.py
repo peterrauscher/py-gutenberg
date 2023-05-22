@@ -4,13 +4,11 @@ from .models import APIException, Book
 
 
 class GutenbergAPI:
-    # DISCLAIMER: PLEASE READ !!!
-    # This library is built on the amazing Gutendex project,
-    # but the public instance has limited bandwidth and the developer
-    # does not make money on the project. If you are able, I HIGHLY encourage
-    # you to host your own instance of the API, you will save the developers
-    # lots of money and response times will be much faster for you.
-    # The instructions for self-hosting can be found here:
+    # === DISCLAIMER ===
+    # This library is built on the amazing Gutendex project, but the only two
+    # public instances are hosted by me (https://gutendex.devbranch.co) and by
+    # the developer of Gutendex (https://gutendex.com). If you can, PLEASE self-host.
+    # The instructions for doing so can be found here:
     # https://github.com/garethbjohnson/gutendex/wiki/Installation-Guide
     def __init__(self, instance_url="https://gutendex.devbranch.co"):
         self.instance_url = instance_url
@@ -27,6 +25,7 @@ class GutenbergAPI:
         search: str = None,
         sort: str = None,
         topic: str = None,
+        limit=32,
     ):
         endpoint = self.instance_url + "/books"
         response = requests.get(
@@ -44,11 +43,13 @@ class GutenbergAPI:
             },
             timeout=30,
         )
+        if not response:
+            raise APIException("No response from server")
         response.raise_for_status()
-        response = response.json()
-        if response.get("detail"):
-            raise APIException(str(response["detail"]))
-        return [Book.from_json(book_json) for book_json in response["results"]]
+        res_json = response.json()
+        if res_json.get("detail", None):
+            raise APIException(str(res_json.get("detail")))
+        return [Book.from_json(book_json) for book_json in res_json.get("results", [])]
 
     def get_all_books(self):
         """Gets all books by the default sorting."""
@@ -85,11 +86,13 @@ class GutenbergAPI:
     def __get_book(self, id: int):
         endpoint = self.instance_url + "/books/" + str(id)
         response = requests.get(endpoint, timeout=30)
+        if not response:
+            raise APIException("No response from server")
         response.raise_for_status()
-        reponse = response.json()
-        if response.detail != None:
-            raise APIException(str(response.detail))
-        return Book.from_json(response)
+        res_json = response.json()
+        if res_json.get("detail", None):
+            raise APIException(str(res_json.get("detail")))
+        return Book.from_json(res_json)
 
     def get_book(self, id: int):
         return self.__get_book(id)

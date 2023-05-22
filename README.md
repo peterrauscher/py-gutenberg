@@ -24,13 +24,13 @@ You should import the module like so:
 from gutenberg import GutenbergAPI
 ```
 
-> The `GutenbergAPI` constructor defaults to using the public instance of the Gutendex API, `https://gutendex.com`. If you are [self-hosting the API](#thanks), you can specify the IP address or URL of your instance with the `instance_url` parameter.
+> The `GutenbergAPI` constructor defaults to using a public instance of the Gutendex API, hosted by me at `https://gutendex.devbranch.co`. If you are [self-hosting the API](#thanks), you can specify the IP address or URL of your instance with the `instance_url` parameter.
 
 ```python
 # Uses the public instance
 gb = GutenbergAPI()
 # Uses a self-hosted instance
-gb_private = GutenbergAPI(instance_url="https://gutendex-two.com")
+gb_private = GutenbergAPI(instance_url="https://gutendex.yourdomain.com")
 ```
 
 ### Book Lists and Searching
@@ -65,6 +65,6 @@ Full usage information is available in [the documentation](https://github.com/pe
 
 ## Thanks
 
-This module is built on the **wonderful** but unofficial API built by [@garethbjohnson](https://github.com/garethbjohnson) over at [gutendex.com](https://gutendex.com). I have no reason to believe the hosting they've setup is meant to sustain more than a few concurrent users, so please be kind a limit your requests where possible. Additionally, if you intend to use this in a production environment, it is highly encouraged that you self-host.
+This module is built on the **wonderful** but unofficial API built by [@garethbjohnson](https://github.com/garethbjohnson) known as [Gutendex](https://github.com/garethbjohnson/gutendex). By default, this library uses a public instance I'm hosting myself, but does not have the bandwidth to maintain more than a few concurrent users. Please be kind and limit your requests where possible. Additionally, if you intend to use this library in a production environment, I highly encourage you to self-host.
 
 ### Read about [self-hosting the API here!](https://github.com/garethbjohnson/gutendex/wiki/Installation-Guide)
