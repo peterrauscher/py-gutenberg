@@ -1,5 +1,6 @@
 import requests
-from models import APIException, Book
+
+from .models import APIException, Book
 
 
 class GutenbergAPI:
@@ -11,7 +12,7 @@ class GutenbergAPI:
     # lots of money and response times will be much faster for you.
     # The instructions for self-hosting can be found here:
     # https://github.com/garethbjohnson/gutendex/wiki/Installation-Guide
-    def __init__(self, instance_url="https://gutendex.com"):
+    def __init__(self, instance_url="https://gutendex.devbranch.co"):
         self.instance_url = instance_url
 
     # Methods for getting or searching for lists of books
