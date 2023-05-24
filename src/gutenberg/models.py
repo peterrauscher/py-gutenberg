@@ -10,6 +10,8 @@ class APIException(Exception):
 
 @dataclass
 class Person:
+    """A class representing an author or contributor to a book."""
+
     birth_year: int
     death_year: int
     name: str
@@ -25,7 +27,7 @@ class Person:
 
 @dataclass
 class Book:
-    """A class for individual books"""
+    """A class representing an individual work from the Project Gutenberg library."""
 
     id: int
     title: str
@@ -63,75 +65,3 @@ class Book:
             formats=book_json["formats"],
             download_count=book_json["download_count"],
         )
-
-
-langs = {
-    "en": "English",
-    "nl": "Dutch",
-    "de": "German",
-    "it": "Italian",
-    "zh": "Chinese",
-    "da": "Danish",
-    "eo": "Esperanto",
-    "fi": "Finnish",
-    "fr": "French",
-    "el": "Greek",
-    "hu": "Hungarian",
-    "la": "Latin",
-    "pt": "Portuguese",
-    "es": "Spanish",
-    "sv": "Swedish",
-    "tl": "Tagalog",
-    "af": "Afrikaans",
-    "ale": "Aleut",
-    "ar": "Arabic",
-    "arp": "Arapaho",
-    "brx": "Bodo",
-    "br": "Breton",
-    "bg": "Bulgarian",
-    "rmr": "Caló",
-    "ca": "Catalan",
-    "ceb": "Cebuano",
-    "cs": "Czech",
-    "et": "Estonian",
-    "fa": "Farsi",
-    "fy": "Frisian",
-    "fur": "Friulian",
-    "gla": "Gaelic, Scottish",
-    "gl": "Galician",
-    "kld": "Gamilaraay",
-    "grc": "Greek, Ancient",
-    "he": "Hebrew",
-    "is": "Icelandic",
-    "ilo": "Iloko",
-    "ia": "Interlingua",
-    "iu": "Inuktitut",
-    "ga": "Irish",
-    "ja": "Japanese",
-    "csb": "Kashubian",
-    "kha": "Khasi",
-    "ko": "Korean",
-    "lt": "Lithuanian",
-    "mi": "Maori",
-    "myn": "Mayan Languages",
-    "enm": "Middle English",
-    "nah": "Nahuatl",
-    "nap": "Napoletano-Calabrese",
-    "nav": "Navajo",
-    "nai": "North American Indian",
-    "no": "Norwegian",
-    "oc": "Occitan",
-    "oji": "Ojibwa",
-    "ang": "Old English",
-    "pl": "Polish",
-    "ro": "Romanian",
-    "ru": "Russian",
-    "sa": "Sanskrit",
-    "sr": "Serbian",
-    "sl": "Slovenian",
-    "bgs": "Tagabawa",
-    "te": "Telugu",
-    "bo": "Tibetan",
-    "cy": "Welsh",
-    "yi": "Yiddish",
-}
